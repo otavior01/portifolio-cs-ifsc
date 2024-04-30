@@ -3,27 +3,28 @@ import java.util.Scanner;
 
 public class Ex3 {
     /*
-    3. Elabore um algoritmos que leia o nome, idade, sexo de uma pessoa. O
-    algoritmo encerras se a idade lida for igual a zero. Mostre a quantidade de
+    3. Elabore um algoritmo que leia o nome, idade, sexo de uma pessoa. O
+    algoritmo encerra se a idade lida for igual a zero. Mostre a quantidade de
     repetições do algoritmo.
     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String name, sex;
+        String name = "", sex = "";
         int reps = 0;
         int age = -1;
-        do {
-            System.out.println("Repetição "+reps++);
-            System.out.println("Digite o nome");
+        while (age != 0) {
+            System.out.println("Repetição "+reps);
+            System.out.print("Digite o nome -> ");
             name = sc.nextLine();
-            System.out.println("Digite o sexo");
+            System.out.print("Digite o sexo -> ");
             sex = sc.nextLine();
-            System.out.println("Digite a idade");
+            System.out.print("Digite a idade -> ");
             age = sc.nextInt();
             sc.nextLine(); //Consume newline character
-        } while (age != 0);
+            reps++;
+        }
         System.out.println("Nome: "+name);
         System.out.println("Sexo: "+sex);
-        System.out.println("Idade: "+age);
+        System.out.println("Idade: "+age);       
     }
 }

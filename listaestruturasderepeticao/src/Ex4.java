@@ -26,8 +26,8 @@ public class Ex4 {
         }
         boolean validCode = false;
         int userCode = 0;
-        while (!validCode) {
-            System.out.println("Digite o código do item desejado");
+        System.out.print("Digite o código do item desejado -> ");
+        while (!validCode) {            
             userCode = sc.nextInt();
             for (int code : itemCodes) {
                 if (userCode == code) {
@@ -36,21 +36,24 @@ public class Ex4 {
                 }
             }
             if (!validCode) {
-                System.out.println("Código inválido, tente novamente");
+                System.out.print("Código inválido, tente novamente -> ");
             }
         }
-        System.out.println("Digite quantos itens deseja");
+        System.out.print("Digite quantos itens deseja -> ");
         int quantity = sc.nextInt();
         double finalPrice = Double.NaN;
-        String itemName = "Código inválido";
+        String itemName = "";
+        int codeIndex = -1;
         for (int i = 0; i < itemCodes.length; i++) {
             if (userCode == itemCodes[i]) {
                 finalPrice = itemPrices[i] * quantity;
                 itemName = itemNames[i];
+                codeIndex = i;
                 break;
             }
         }
-        System.out.println("Item pedido: "+itemName);
+        System.out.println("\nItem pedido: "+itemName+"\tCódigo: "+itemCodes[codeIndex]);
+        System.out.println("Preço unitário: R$"+df.format(itemPrices[codeIndex])+"\tQuantidade: "+quantity);
         System.out.println("Valor a ser pago: R$"+df.format(finalPrice));
     }
 }

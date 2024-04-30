@@ -23,16 +23,16 @@ public class Ex5 {
         int sexCode = -1;
         for (int i = 0; i < 10; i++) {
             System.out.println("Ficha "+(i+1));
-            System.out.println("Digite a altura em metros");
+            System.out.print("Digite a altura em metros -> ");
             height = sc.nextDouble();
             boolean check = false;
+            System.out.print("Digite o sexo (1-Masculino | 2-Feminino) -> ");            
             while (!check) {
-                System.out.println("Digite o sexo (1-Masculino | 2-Feminino)");
                 sexCode = sc.nextInt();
                 if ((sexCode == 1) || (sexCode == 2)){
                     check = true;
                 } else {
-                    System.out.println("Código invalido, tente novamente");
+                    System.out.print("Código invalido, tente novamente -> ");
                 }
             }
             if (biggestHeight < height) {

@@ -8,21 +8,20 @@ public class Ex1 {
     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Digite um número");
+        System.out.print("Digite um número -> ");
         int number1 = sc.nextInt();
-        System.out.println("Digite um número");
+        System.out.print("Digite outro número -> ");
         int number2 = sc.nextInt();
-        do {
-        if (number1 < number2) {
+        while (number1 != number2) {
+            if (number1 < number2) {
                 System.out.println(number1+" é menor que "+number2+". Adicionando 1 ao primeiro número...");
-                number1 = ++number1;
-            } else if (number1 > number2) {
-                System.out.println(number1+" é maior que "+number2+". Subtraindo 1 do primeiro número...");
-                number1 = --number1;
-            } else {
-                //Do nothing...
+                number1++;    
             }
-        } while (number1 != number2);           
-        System.out.println("Os números são iguais");
+            if (number1 > number2) {
+                System.out.println(number1+" é maior que "+number2+". Subtraindo 1 do primeiro número...");
+                number1--;
+            }
+        }        
+        System.out.println(number1+" é igual a "+number2+".\nOs números são iguais");
     }
 }

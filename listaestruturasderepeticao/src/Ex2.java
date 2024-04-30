@@ -9,12 +9,12 @@ public class Ex2 {
     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Digite um número");
+        System.out.print("Digite um número -> ");
         int number1 = sc.nextInt();
-        System.out.println("Digite outro número");
+        System.out.print("Digite outro número -> ");
         int number2 = sc.nextInt();
         while (number1 > number2) {
-            System.out.println("O segundo número deve ser maior que o primeiro.\nDigite outro número");
+            System.out.print("O segundo número deve ser maior que o primeiro.\nDigite outro número -> ");
             number2 = sc.nextInt();
         }
         int add = number1 + number2;

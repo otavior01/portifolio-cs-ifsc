@@ -22,14 +22,14 @@ public class Ex8 {
         int ticketType1Count = 0, ticketType2Count = 0, ticketType3Count = 0, ticketType4Count = 0; // Initialize ticket type counters
         int count = 1; // Initialize ticket count
         int i = -1; // Initialize ticket type index
-        boolean continueProgram = true; // Flag to continue the program        
+        boolean continueProgram = true; // Flag to continue the program
         // Main loop to handle ticket sales
         do {
-            System.out.println("Bilhete "+count+"\n");
+            System.out.println("\nBilhete "+count+"\n");
             boolean ageCheck = false;            
             // Loop to validate visitor age input
             while (!ageCheck) {
-                System.out.println("Digite a idade do visitante");
+                System.out.print("Digite a idade do visitante -> ");
                 if (sc.hasNextInt()) { // Check if input is an integer
                     visitorAge = sc.nextInt(); // Get visitor age
                     sc.nextLine();
@@ -37,10 +37,10 @@ public class Ex8 {
                     if (visitorAge > 0) {
                         ageCheck = true;
                     } else {
-                        System.out.println("Idade inválida, Tente novamente\n");
+                        System.out.println("Idade inválida, tente novamente -> ");
                     }
                 } else {
-                    System.out.println("Entrada inválida, Tente novamente\n");
+                    System.out.println("Entrada inválida, tente novamente -> ");
                     sc.nextLine(); // Consume invalid input
                 }
             }           
@@ -61,20 +61,27 @@ public class Ex8 {
             // Display ticket information
             System.out.println("Idade do visitante: "+visitorAge);
             System.out.println("Tipo do bilhete: "+ticketTypes[i]);
-            System.out.println("\nDeseja continuar? S - Sim | N - Não");
-            char userChoice = sc.next().charAt(0);
-            sc.nextLine();                      
-            // Check user choice to continue or end the program
-            switch (userChoice) {
-                case 'S', 's' -> {
-                    System.out.println("\n");
-                    count++;
+            System.out.print("\nDeseja continuar? S - Sim | N - Não -> ");
+            boolean userChoiceCheck = false;
+            while (!userChoiceCheck) {
+                String userChoice = sc.nextLine().trim().toLowerCase();
+                // Handle user choice
+                switch (userChoice) {
+                    case "s" -> {
+                        userChoiceCheck = true;
+                        count++;
+                        break;
+                    }
+                    case "n" -> {
+                        System.out.println("\nPrograma finalizado\n");
+                        userChoiceCheck = true;
+                        continueProgram = false;
+                        break;
+                    }
+                    default -> {
+                        System.out.print("Resposta Inválida, tente novamente -> ");
+                    }
                 }
-                case 'N', 'n' -> {
-                    System.out.println("Programa finalizado");
-                    continueProgram = false;
-                }
-                default -> System.out.println("Resposta Inválida");
             }
         } while(continueProgram); // Loop until continueProgram is false        
         // Display ticket counts

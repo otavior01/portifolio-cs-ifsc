@@ -43,7 +43,7 @@ public class Ex9 {
             System.out.println("‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾");
 
             // Input CPF number
-            System.out.println("\nDigite o CPF do contribuinte");
+            System.out.print("\nDigite o CPF do contribuinte -> ");
             boolean cpfCheck = false;
             while (!cpfCheck) {
                 if (sc.hasNextDouble()) {
@@ -52,19 +52,19 @@ public class Ex9 {
                     if (cpf == 0) {
                         break OUTER; // Terminate program if CPF is 0
                     } else if (cpf < 0) {
-                        System.out.print("CPF não pode ser negativo, tente novamente ->");
+                        System.out.print("CPF não pode ser negativo, tente novamente -> ");
                     } else {
                         cpfCheck = true;
                         break;
                     }
                 } else {
-                    System.out.print("Entrada inválida, tente novamente ->");
+                    System.out.print("Entrada inválida, tente novamente -> ");
                     sc.nextLine(); // Consume invalid input
                 }
             }
 
             // Input taxpayer class
-            System.out.println("Digite a classe do contribuinte( A | B | C | D | E )");
+            System.out.print("( A | B | C | D | E )\nDigite a classe do contribuinte -> ");
             boolean classCheck = false;
             while (!classCheck) {
                 userClass = sc.next().charAt(0);
@@ -81,7 +81,7 @@ public class Ex9 {
             }
 
             // Input monthly income
-            System.out.println("Digite a renda mensal do contribuinte");
+            System.out.print("Digite a renda mensal do contribuinte ->");
             boolean incomeCheck = false;
             while (!incomeCheck) {
                 if (sc.hasNextDouble()) {

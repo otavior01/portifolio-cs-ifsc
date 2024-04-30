@@ -37,12 +37,12 @@ public class Ex6 {
         double badRatingAvgAge;       
         for (int i = 0; i < 5; i++) {
             System.out.println("Questionário nº"+(i + 1));
-            System.out.println("Digite a sua idade");
+            System.out.print("Digite a sua idade -> ");
             age = sc.nextInt();
             sc.nextLine();
             boolean check = false;
+            System.out.println("(A - Ótimo | B - Bom | C - Regular | D - Ruim)\nDigite a nota que deseja dar ao filme -> ");
             while (!check) {
-                System.out.println("Digite a nota que deseja dar ao filme (A - Ótimo | B - Bom | C - Regular | D - Ruim)");
                 userRating = sc.next();
                 for (String r : rating) {
                     if (userRating.equals(r)) {
@@ -51,7 +51,7 @@ public class Ex6 {
                     }
                 }
                 if (!check) {
-                        System.out.println("Código inválido, tente novamente\n");
+                        System.out.print("Código inválido, tente novamente -> ");
                     }
             }
             switch (userRating) {
